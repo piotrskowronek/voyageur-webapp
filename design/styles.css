@@ -2,9 +2,11 @@ body {font-family: 'Raleway', sans-serif; background-color: #F4F4F4; color: #4F4
 a {color: #966875;}
 .navbar {min-height: 35px; background-color: #4F4F4F;}
 .navbar-header > img {height: 35px; padding-left: 35px;}
+ul {margin: 0; padding: 0;}
 ul.nav li a {color: #5C7A7C;}
 .avatar-box a {color: #5C7A7C;}
 .avatar-box a:hover {color: #5C7A7C;}
+.avatar-box p {margin-top: 3px;}
 .btn-primary {background-color: #5C7A7C; border-color: #5C7A7C;}
 .pager {margin: 11px 0;}
 
@@ -28,13 +30,19 @@ ul.nav li a {color: #5C7A7C;}
 .activity-body h5 a {color: #5C7A7C;}
 .activity-body .photo-item {display: inline-block;}
 .activity-body .more-box {background-color: #E4E4E4; height: 110px; width: 90px; margin-left: 4px; position: absolute; display: inline-block; font-size: 26px; text-align: center; vertical-align: middle; line-height: 120px; color: #966875;}
-
-.profile-menu {margin-top: 11px; padding-right: 22px;}
+.activity-body li {list-style-type: none;}
+.gallery-albums li {font-family: 'Montserrat', sans-serif; font-size: 16px; list-style-type: none; display: inline-block; margin: 10px 30px 5px 10px;}
+.profile-menu {margin-top: 30px; padding-right: 22px;}
 .profile-menu img {float: right;}
 .profile-menu p {text-align: right; margin-top: 3px;}
 .profile-menu ul {padding-top: 11px;}
 .profile-menu li {list-style-type: none; text-align: right; font-size: 17px; line-height: 33px;}
 .profile-menu li a {color: #5C7A7C;}
+
+.manage-link {font-family: 'Montserrat', sans-serif; margin: 5px 10px 0 0; color: #5C7A7C;}
+
+.gallery-box {margin: 5px;}
+.gallery-box img {margin: 5px;}
 
 .active {font-weight: 600;}
 
@@ -45,5 +53,11 @@ ul.nav li a {color: #5C7A7C;}
 .footer i {font-size: 29pt;}
 
 .nothing-here p {line-height: 330px; font-size: 26px; vertical-align: middle; text-align: center; color: #5C7A7C;}
+.drop-box {background-color: #E4E4E4; width: 100%; height: 200px; color: #5C7A7C;}
+.drop-box i {font-size: 72px; line-height: 90px; text-align: center; display: block; padding-top: 30px;}
+.drop-box p {font-size: 24px; text-align: center; display: block;}
 
 .m-t-10 {margin-top: 11px;}
+.grey {color: #929496;}
+.fa-plus {-webkit-text-stroke: 2px white !important;}
+button .fa-plus {-webkit-text-stroke: 0.1px white !important;}

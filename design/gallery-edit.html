@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Voyageur</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://use.fontawesome.com/374a2e16b6.js"></script>
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="http://getbootstrap.com/assets/js/html5shiv.js"></script>
+          <script src="http://getbootstrap.com/assets/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="navbar-header">
+                <img src="img/logo.png" alt="Logo">
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="avatar-box col-xs-2">
+                    <img src="img/piotr.jpg" alt="Avatar" width="64" height="64" class="img-circle center-block">
+                    <p class="text-center"><a href="#">Piotr Skowronek</a></p>
+                </div>
+                <div class="toolbar col-xs-8">
+                    <ul class="nav nav-pills">
+                      <li role="presentation"><a href="#">My Profile</a></li>
+                      <li role="presentation"><a href="#">Explore</a></li>
+                      <li role="presentation"><a href="#">Post</a></li>
+                    </ul>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Write something on your board...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Post</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <i class="glyphicon glyphicon-cog"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+                    <div class="activity-box img-rounded">
+                        <div class="gallery-box row">
+                            <div class="activity-body col-xs-12">
+                                <form class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-xs-10">
+                                        <div class="form-group">
+                                            <label for="album-title" class="col-xs-2 input-sm">Album title:</label>
+                                            <div class="col-xs-10">
+                                                <input type="text" id="album-title" class="form-control input-sm" placeholder="e.g. Photos from trip">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="place" class="col-xs-2 input-sm">Place of photos:</label>
+                                            <div class="col-xs-10">
+                                                <input type="text" id="place" class="form-control input-sm" placeholder="e.g. Paris">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-group col-xs-2">
+                                        <button class="btn btn-primary btn-sm pull-right"><i class="fa fa-check"></i> Save</button>
+                                    </div>
+                                </div>
+                                <div class="row m-t-10">
+                                    <div class="gallery-list col-xs-4">
+                                        <ul>
+                                            <li>
+                                                <img src="img/thumbnail1.jpg" width="50" height="50">
+                                                <a href="#"><i class="fa fa-picture-o"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                                            </li>
+                                            <li>
+                                                <img src="img/thumbnail1.jpg" width="50" height="50">
+                                                <a href="#"><i class="fa fa-picture-o"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                                            </li>
+                                            <li>
+                                                <img src="img/thumbnail1.jpg" width="50" height="50">
+                                                <a href="#"><i class="fa fa-picture-o"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                                            </li>
+                                            <li>
+                                                <img src="img/thumbnail1.jpg" width="50" height="50">
+                                                <a href="#"><i class="fa fa-picture-o"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                                            </li>
+                                            <li>
+                                                <img src="img/thumbnail1.jpg" width="50" height="50">
+                                                <a href="#"><i class="fa fa-picture-o"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                                <a href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <div class="drop-box">
+                                            <i class="glyphicon glyphicon-cloud-upload"></i>
+                                            <p>Drag and drop the image here</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p>
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                        </p>
+                        <img src="img/zut.png" alt="ZUT">
+                    </div>
+                    <div class="col-xs-3">
+                        <img src="img/logo-dark.png" alt="Voyageur">
+                        <p>
+                            Author: Piotr Skowronek<br>
+                            <a href="mailto:piotreska@gmail.com">Contact me</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="//code.jquery.com/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
