@@ -29,7 +29,7 @@ ul.nav li a {color: #5C7A7C;}
 .activity-body h5 {font-size: 18px; margin-bottom: 4px;}
 .activity-body h5 a {color: #5C7A7C;}
 .activity-body .photo-item {display: inline-block;}
-.activity-body .more-box {background-color: #E4E4E4; height: 110px; width: 90px; margin-left: 4px; position: absolute; display: inline-block; font-size: 26px; text-align: center; vertical-align: middle; line-height: 120px; color: #966875;}
+.activity-body .more-box {background-color: #E4E4E4; height: 100px; width: 90px; margin-left: 4px; position: absolute; display: inline-block; font-size: 26px; text-align: center; vertical-align: middle; line-height: 110px; color: #966875;}
 .activity-body li {list-style-type: none;}
 .gallery-albums li {font-family: 'Montserrat', sans-serif; font-size: 16px; list-style-type: none; display: inline-block; margin: 10px 30px 5px 10px;}
 .profile-menu {margin-top: 30px; padding-right: 22px;}
