@@ -1,14 +1,18 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-angular.module('myApp', [
+angular.module('voyageur', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
+  'ngResource',
+  'ui.router',
+  'ui.bootstrap',
+  'voyageur.resources',
+  'voyageur.board',
+  'voyageur.site',
+  'voyageur.landing'
 ]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+config(['$locationProvider', function($locationProvider) {
+  $locationProvider.html5Mode(true);
   $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+
+angular.module('voyageur.resources', []);
