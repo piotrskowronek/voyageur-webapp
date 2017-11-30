@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="styles/styles.css">
+
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-header">
+        <img src="img/logo.png" alt="Logo">
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="avatar-box col-xs-2">
+            <img src="img/piotr.jpg" alt="Avatar" width="64" height="64" class="img-circle center-block">
+            <p class="text-center"><a href="#">Piotr Skowronek</a></p>
+        </div>
+        <div class="toolbar col-xs-8">
+            <ul class="nav nav-pills">
+              <li role="presentation"><a href="#">My Profile</a></li>
+              <li role="presentation"><a href="#">Explore</a></li>
+              <li role="presentation"><a href="#">Post <span class="badge">4</span></a></li>
+            </ul>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="&bdquo;I want to go to London&rdquo;">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Post</button>
+                </span>
+            </div>
+            <div class="alert alert-success" role="alert">
+                Your post has been successfully posted on your individual board. <a href="#">View it</a>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <i class="glyphicon glyphicon-cog"></i>
+        </div>
+    </div>
+    <div ui-view="layout"></div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-9">
+                <img src="img/zut.png" alt="ZUT"><br>
+                <img src="img/uhk.png" alt="UHK" style="margin-top: 10px;">
+            </div>
+            <div class="col-xs-3">
+                <img src="img/logo-dark.png" alt="Voyageur">
+                <p>
+                    Author: Piotr Skowronek<br>
+                    <a href="mailto:piotreska@gmail.com">Contact me</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

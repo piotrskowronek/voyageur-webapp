@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="styles/landing.css">
+
+<header ng-controller="LandingCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="index.html"><img src="img/logo.png" width="200" alt="Logo"></a>
+            </div>
+            <div class="col-xs-6 signin text-right navbar-nav">
+                <a  uib-popover-template="signInButton.templateUrl"
+                    popover-title="{{signInButton.title}}"
+                    popover-is-open="signInButton.isOpen"
+                    popover-placement="bottom-right"href="#pricing" class="scroll">Sign In</a>
+                &nbsp; &nbsp;
+                <a href="#">Sign Up</a>
+            </div>
+        </div>
+
+        <div class="row header-info">
+            <div class="col-xs-10 col-xs-offset-1 text-center">
+                <h1 class="wow fadeIn">Find voyageurs just like you</h1>
+                <br/>
+                <p class="lead">Discover a new dimension of travel</p>
+                <br/>
+
+                <div class="row">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="row">
+                            <div class="col-xs-6 text-right">
+                                <a href="#be-the-first" class="btn btn-secondary btn-lg">Sign Up</a>
+                            </div>
+                            <div class="col-xs-6 text-left">
+                                <a href="#" ng-click="signInButton.isOpen = true" class="btn btn-primary btn-lg">Sign In</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 margin-20">
+                <p>
+                    <small>Copyright &copy; 2018. All rights reserved. <br>
+                        Created by <a href="mailto:piotreska@gmail.com">Piotr Skowronek</a></small>
+                </p>
+            </div>
+
+            <div class="col-sm-4 text-right">
+                <img src="img/logo-dark.png" width="200" alt="Logo">
+            </div>
+        </div>
+    </div>
+</footer>
