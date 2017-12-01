@@ -1,0 +1,46 @@
+<div class="modal-body">
+    <h2>Sign up</h2>
+    <h4>Create an account in 5 clicks</h4>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <div class="form-group form-group text-center signup">
+                <form name="signupForm" novalidate>
+
+                <div class="row">
+                    <div class="col-xs-6">
+                        <input ng-model="signUpFormData.first_name" required="" type="text" name="firstNameInput"
+                               placeholder="First Name" class="form-control input-sm col-xs-6">
+                    </div>
+                    <div class="col-xs-6">
+                        <input ng-model="signUpFormData.last_name" required="" type="text" name="lastNameInput"
+                               placeholder="Last Name" class="form-control input-sm col-xs-6">
+                    </div>
+                </div>
+
+                <div ng-show="signupForm.$submitted">
+                    <p ng-show="signupForm.firstNameInput.$error.required || signupForm.lastNameInput.$error.required">
+                        Fill up your name.
+                    </p>
+                </div>
+
+                <input ng-model="signUpFormData.email" required="" type="email" name="emailInput"
+                       placeholder="Email" class="form-control input-sm">
+                <div ng-show="signupForm.$submitted">
+                  <p ng-show="signupForm.emailInput.$error.required">Fill up email field.</p>
+                  <p ng-show="signupForm.emailInput.$error.email">This is not a valid email.</p>
+                </div>
+
+                <input ng-model="signUpFormData.password" required="" type="password" name="passwordInput"
+                       placeholder="Password" class="form-control input-sm">
+                <div ng-show="signupForm.$submitted">
+                  <p ng-show="signupForm.passwordInput.$error.required">Fill up password field.</p>
+                </div>
+
+                <p>{{ signUpFormErrorText }}</p>
+
+                <button type="submit" ng-click="submitSignUpForm()" class="btn btn-primary btn-lg">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
