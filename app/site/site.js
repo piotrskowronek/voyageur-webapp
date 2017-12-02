@@ -2,14 +2,14 @@
 
 angular.module('voyageur.site', ['ngRoute'])
 
-.config(['$stateProvider', function($stateProvider) {
-  $stateProvider.state('site', {
-    templateUrl: 'site/site.html',
-    url: '',
-    controller: 'SiteCtrl'
-  });
-}])
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('site', {
+            templateUrl: 'site/site.html',
+            url: '',
+            controller: 'SiteCtrl'
+        });
+    }])
 
-.controller('SiteCtrl', [function() {
+    .controller('SiteCtrl', ['$state', function ($state) {
 
-}]);
+    }]);

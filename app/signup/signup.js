@@ -27,7 +27,7 @@ angular.module('voyageur.signup', ['ngRoute'])
                     }
                     return $q.reject();
                 }).then(function (data) {
-                    localStorage.setItem('token', data.token);
+                    sessionStorage.setItem('token', data.token);
                     $uibModalInstance.close();
                     $state.go('site.board');
                 }).catch(function(){});

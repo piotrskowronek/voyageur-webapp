@@ -6,12 +6,15 @@ angular.module('voyageur.landing', ['ngRoute'])
         $stateProvider.state('landing', {
             templateUrl: 'landing/landing.html',
             url: '/',
-            controller: 'LandingCtrl'
+            controller: 'LandingCtrl',
+            data: {
+                profileNotRequired: true
+            }
         });
     }])
 
-    .controller('LandingCtrl', ['$scope', '$state', '$uibModal', '$document', 'authResource',
-        function ($scope, $state, $uibModal, $document, authResource) {
+    .controller('LandingCtrl', ['$scope', '$state', '$uibModal', '$document', '$http', 'authResource',
+        function ($scope, $state, $uibModal, $document, $http, authResource) {
             $scope.signInButton = {
                 title: 'Sign In',
                 templateUrl: 'landing/signin.html',
@@ -27,7 +30,8 @@ angular.module('voyageur.landing', ['ngRoute'])
 
             $scope.submitSignInForm = function () {
                 authResource.authorize({}, $scope.signInFormData, function (data) {
-                    localStorage.setItem('token', data.token);
+                    sessionStorage.setItem('token', data.token);
+                    $http.defaults.headers.common["Authorization"] = "Token " + data.token;
                     $state.go('site.board');
                 }, function (response) {
                     $scope.signInFormErrorText = response.data.non_field_errors[0]

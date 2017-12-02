@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+        <div class="activity-box img-rounded">
+            <!--<div class="row">-->
+                <!--<div class="activity-body col-xs-12">-->
+                    <!--<div class="alert alert-success" role="alert">-->
+                        <!--Your profile information has been updated. <a href="#">View my profile</a>-->
+                    <!--</div>-->
+                    <!--<div class="alert alert-danger" role="alert">-->
+                        <!--There occured following problems:-->
+                        <!--<ul>-->
+                            <!--<li>First name cannot be empty</li>-->
+                            <!--<li>Last name cannot be empty</li>-->
+                        <!--</ul>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <div class="row">
+                <div class="activity-body col-xs-8 col-xs-offset-2">
+                    <form name="form" novalidate>
+                        <div class="form-group">
+                            <label for="content">About me</label>
+                            <textarea ng-model="formData.about_me" required="" name="aboutMeInput"
+                                      placeholder="Write short description..."
+                                      class="form-control" id="content" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="places">Places where I have been to</label>
+                            <textarea ng-model="formData.places_been_to" required="" name="placesBeenToInput"
+                                      placeholder="Write short description..."
+                                      class="form-control" id="places" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="travel">Why I like to travel</label>
+                            <textarea ng-model="formData.why_like_travel" required="" name="whyLikeTravelInput"
+                                      placeholder="Write short description..."
+                                      class="form-control" id="travel" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="best-things">Best things I have done in my life</label>
+                            <textarea ng-model="formData.best_things" required="" name="bestThingsInput"
+                                      placeholder="Write short description..."
+                                      class="form-control" id="best-things" rows="3"></textarea>
+                        </div>
+                        <button type="submit" ng-click="submitForm()" class="btn btn-primary btn-sm pull-right">
+                            Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

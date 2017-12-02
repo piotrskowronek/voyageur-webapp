@@ -4,6 +4,10 @@
             create: {
                 url: cfg.apiRoot + "users/?",
                 method: "POST"
+            },
+            logged: {
+                url: cfg.apiRoot + "users/logged/?",
+                method: "GET"
             }
         });
  }]);
