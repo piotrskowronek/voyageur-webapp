@@ -7,7 +7,7 @@ angular.module('voyageur.board', ['ngRoute'])
         url: '/board',
         views: {
             layout: {
-                templateUrl: 'board/board.html',
+                templateUrl: 'components/board/board.html',
                 controller: 'BoardCtrl'
             }
         }

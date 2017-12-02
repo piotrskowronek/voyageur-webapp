@@ -4,7 +4,7 @@ angular.module('voyageur.site', ['ngRoute'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('site', {
-            templateUrl: 'site/site.html',
+            templateUrl: 'components/site/site.html',
             url: '',
             controller: 'SiteCtrl',
             resolve: {

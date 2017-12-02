@@ -7,7 +7,7 @@ angular.module('voyageur.profile-edition', ['ngRoute'])
             url: '/profile-edit',
             views: {
                 layout: {
-                    templateUrl: 'profile-edition/profile-edition.html',
+                    templateUrl: 'components/profile-edition/profile-edition.html',
                     controller: 'ProfileEditionCtrl'
                 }
             },

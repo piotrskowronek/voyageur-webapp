@@ -4,7 +4,7 @@ angular.module('voyageur.landing', ['ngRoute'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('landing', {
-            templateUrl: 'landing/landing.html',
+            templateUrl: 'components/landing/landing.html',
             url: '/',
             controller: 'LandingCtrl',
             data: {
@@ -17,7 +17,7 @@ angular.module('voyageur.landing', ['ngRoute'])
         function ($scope, $state, $uibModal, $document, $http, authResource) {
             $scope.signInButton = {
                 title: 'Sign In',
-                templateUrl: 'landing/signin.html',
+                templateUrl: 'components/landing/signin.html',
                 isOpen: false
             };
 

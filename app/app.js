@@ -34,7 +34,6 @@ angular.module('voyageur', [
             }
         });
         $transitions.onStart({to: function(state){
-            console.log(state);
             return state.data === undefined || state.data.profileNotRequired === undefined || state.data.profileNotRequired === false;
         }}, function(trans){
             return userResource.logged().$promise.then(function(data){
