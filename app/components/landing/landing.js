@@ -43,7 +43,7 @@ angular.module('voyageur.landing', ['ngRoute'])
 
                 var modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'signup/signup.html',
+                    templateUrl: 'components/signup/signup.html',
                     controller: 'SignUpCtrl',
                     controllerAs: '$ctrl',
                     appendTo: modalDOM

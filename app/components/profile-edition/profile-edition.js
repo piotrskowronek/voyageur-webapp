@@ -26,14 +26,19 @@ angular.module('voyageur.profile-edition', ['ngRoute'])
                 why_like_travel: ''
             };
 
-            $scope.signUpFormErrorText = '';
+            $scope.errors = null;
+            $scope.success = false;
 
             $scope.submitForm = function () {
-                profileResource.update({}, $scope.formData).$promise
+                profileResource.update({id: $scope.logged.id}, $scope.formData).$promise
                     .then(function (data) {
-
+                        if ($scope.logged.has_profile){
+                            $scope.success = true;
+                        } else {
+                            $state.go('site.board');
+                        }
                     }, function (response) {
-
+                        $scope.errors = response.data
                     });
             };
         }]);

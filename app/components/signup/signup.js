@@ -2,8 +2,8 @@
 
 angular.module('voyageur.signup', ['ngRoute'])
 
-    .controller('SignUpCtrl', ['$scope', '$state', '$q', '$uibModalInstance', 'userResource', 'authResource',
-        function ($scope, $state, $q, $uibModalInstance, userResource, authResource) {
+    .controller('SignUpCtrl', ['$scope', '$state', '$q', '$http', '$uibModalInstance', 'userResource', 'authResource',
+        function ($scope, $state, $q, $http, $uibModalInstance, userResource, authResource) {
             $scope.signUpFormData = {
                 email: '',
                 password: '',
@@ -28,6 +28,7 @@ angular.module('voyageur.signup', ['ngRoute'])
                     return $q.reject();
                 }).then(function (data) {
                     sessionStorage.setItem('token', data.token);
+                    $http.defaults.headers.common["Authorization"] = "Token " + data.token;
                     $uibModalInstance.close();
                     $state.go('site.board');
                 }).catch(function(){});

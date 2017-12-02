@@ -31,7 +31,11 @@
             <!--</div>-->
         </div>
         <div class="col-xs-2">
-            <i class="glyphicon glyphicon-cog"></i>
+            <a uib-popover-template="settingsButton.templateUrl"
+                    popover-is-open="settingsButton.isOpen"
+                    popover-placement="bottom">
+                <i class="glyphicon glyphicon-cog"></i>
+            </a>
         </div>
     </div>
     <div ui-view="layout"></div>

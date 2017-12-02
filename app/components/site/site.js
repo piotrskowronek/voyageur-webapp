@@ -15,6 +15,17 @@ angular.module('voyageur.site', ['ngRoute'])
         });
     }])
 
-    .controller('SiteCtrl', ['$scope', 'logged', function ($scope, logged) {
+    .controller('SiteCtrl', ['$scope', '$state', '$http', 'logged', function ($scope, $state, $http, logged) {
         $scope.logged = logged;
+
+        $scope.settingsButton = {
+            templateUrl: 'components/site/settings.html',
+            isOpen: false
+        };
+
+        $scope.logout = function(){
+            delete $http.defaults.headers.common["Authorization"];
+            sessionStorage.removeItem('token');
+            $state.go('landing');
+        };
     }]);
