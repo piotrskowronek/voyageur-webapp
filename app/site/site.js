@@ -6,10 +6,15 @@ angular.module('voyageur.site', ['ngRoute'])
         $stateProvider.state('site', {
             templateUrl: 'site/site.html',
             url: '',
-            controller: 'SiteCtrl'
+            controller: 'SiteCtrl',
+            resolve: {
+                logged: function(userResource) {
+                    return userResource.logged().$promise
+                }
+            }
         });
     }])
 
-    .controller('SiteCtrl', ['$state', function ($state) {
-
+    .controller('SiteCtrl', ['$scope', 'logged', function ($scope, logged) {
+        $scope.logged = logged;
     }]);

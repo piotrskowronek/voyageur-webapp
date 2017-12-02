@@ -17,7 +17,7 @@ angular.module('voyageur.profile-edition', ['ngRoute'])
         });
     }])
 
-    .controller('SignUpCtrl', ['$scope', '$state', 'profileResource',
+    .controller('ProfileEditionCtrl', ['$scope', '$state', 'profileResource',
         function ($scope, $state, profileResource) {
             $scope.formData = {
                 about_me: '',

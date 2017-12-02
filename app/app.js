@@ -6,6 +6,7 @@ angular.module('voyageur', [
     'ui.router',
     'ui.bootstrap',
     'voyageur.resources',
+    'voyageur.filters',
     'voyageur.board',
     'voyageur.signup',
     'voyageur.profile-edition',
@@ -50,3 +51,4 @@ angular.module('voyageur', [
     }]);
 
 angular.module('voyageur.resources', []);
+angular.module('voyageur.filters', []);

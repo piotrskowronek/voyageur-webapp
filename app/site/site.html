@@ -8,14 +8,17 @@
 <div class="container">
     <div class="row">
         <div class="avatar-box col-xs-2">
-            <img src="img/piotr.jpg" alt="Avatar" width="64" height="64" class="img-circle center-block">
-            <p class="text-center"><a href="#">Piotr Skowronek</a></p>
+            <img ng-hide="logged.avatar" src="img/face.jpg" alt="Avatar" width="64" height="64" class="img-circle center-block">
+            <img ng-show="logged.avatar" src="{{ logged.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="64" height="64" class="img-circle center-block">
+            <p class="text-center"><a href="#">{{ logged.first_name }} {{ logged.last_name }}</a></p>
         </div>
         <div class="toolbar col-xs-8">
             <ul class="nav nav-pills">
               <li role="presentation"><a href="#">My Profile</a></li>
               <li role="presentation"><a href="#">Explore</a></li>
-              <li role="presentation"><a href="#">Post <span class="badge">4</span></a></li>
+              <li role="presentation"><a href="#">
+                  Post <span ng-show="logged.unread_messages_count" class="badge">{{ logged.unread_messages_count }}</span>
+              </a></li>
             </ul>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="&bdquo;I want to go to London&rdquo;">
