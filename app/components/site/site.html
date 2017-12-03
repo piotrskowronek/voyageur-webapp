@@ -10,7 +10,7 @@
         <div class="avatar-box col-xs-2">
             <img ng-hide="logged.avatar" src="img/face.jpg" alt="Avatar" width="64" height="64" class="img-circle center-block">
             <img ng-show="logged.avatar" src="{{ logged.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="64" height="64" class="img-circle center-block">
-            <p class="text-center"><a href="#">{{ logged.first_name }} {{ logged.last_name }}</a></p>
+            <p class="text-center"><a ui-sref="site.board">{{ logged.first_name }} {{ logged.last_name }}</a></p>
         </div>
         <div class="toolbar col-xs-8">
             <ul class="nav nav-pills">
@@ -20,15 +20,19 @@
                   Post <span ng-show="logged.unread_messages_count" class="badge">{{ logged.unread_messages_count }}</span>
               </a></li>
             </ul>
+            <form name="actionForm" novalidate>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="&bdquo;I want to go to London&rdquo;">
+                <input ng-model="actionInput.value" type="text" class="form-control" placeholder="{{ actionInput.placeholder }}">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">Post</button>
+                    <button ng-click="actionButton.submitFn()" class="btn btn-default" type="submit">
+                        {{ actionButton.label }}
+                    </button>
                 </span>
             </div>
-            <!--<div class="alert alert-success" role="alert">-->
-                <!--Your post has been successfully posted on your individual board. <a href="#">View it</a>-->
-            <!--</div>-->
+            </form>
+            <div ng-show="showSuccessBox" class="alert alert-success" role="alert">
+                Your post has been successfully posted on your individual board.
+            </div>
         </div>
         <div class="col-xs-2">
             <a uib-popover-template="settingsButton.templateUrl"

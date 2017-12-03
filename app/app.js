@@ -5,6 +5,7 @@ angular.module('voyageur', [
     'ngResource',
     'ui.router',
     'ui.bootstrap',
+    'angularMoment',
     'voyageur.resources',
     'voyageur.filters',
     'voyageur.board',

@@ -19,6 +19,12 @@ angular.module('voyageur.profile-edition', ['ngRoute'])
 
     .controller('ProfileEditionCtrl', ['$scope', '$state', 'profileResource',
         function ($scope, $state, profileResource) {
+            if ($scope.logged.has_profile){
+                profileResource.get({id: $scope.logged.id}).$promise.then(function(data){
+                    $scope.formData = data;
+                });
+            }
+
             $scope.formData = {
                 about_me: '',
                 places_been_to: '',

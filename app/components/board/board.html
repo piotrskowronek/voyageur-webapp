@@ -1,120 +1,195 @@
 <div class="row">
     <div class="activity-wrapper col-xs-8 col-xs-offset-2">
-        <div class="activity-box img-rounded">
-            <div class="row">
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-header col-xs-3">-->
+                    <!--<img src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">-->
+                    <!--<p><a href="#">Karolina Szyndler</a></p>-->
+                <!--</div>-->
+                <!--<div class="activity-body col-xs-9">-->
+                    <!--<p>Karolina Szyndler wants to go to <a href="#">London, United Kingdom</a> in near future.</p>-->
+                    <!--<p class="small text-right">&mdash; added 5 minutes ago.</p>-->
+                    <!--<p><a href="#">&mdash; I want too!</a></p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-header col-xs-3">-->
+                    <!--<img src="img/woman1.jpeg" alt="Avatar" width="48" height="48" class="img-circle">-->
+                    <!--<p><a href="#">Justyna Nowak</a></p>-->
+                <!--</div>-->
+                <!--<div class="activity-body col-xs-9">-->
+                    <!--<p>-->
+                        <!--Justyna Nowak gives 4 out of 5 stars to atmosphere in <a href="#">Paris, France</a>.<br>-->
+                        <!--Atmosphere:-->
+                        <!--<i class="fa fa-star" aria-hidden="true"></i>-->
+                        <!--<i class="fa fa-star" aria-hidden="true"></i>-->
+                        <!--<i class="fa fa-star" aria-hidden="true"></i>-->
+                        <!--<i class="fa fa-star" aria-hidden="true"></i>-->
+                        <!--<i class="fa fa-star-o" aria-hidden="true"></i>-->
+                    <!--</p>-->
+                    <!--<p class="small text-right">&mdash; added 12:37, 31 January 2017.</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-header col-xs-3">-->
+                    <!--<img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">-->
+                    <!--<p><a href="#">Anna Kowalska</a></p>-->
+                <!--</div>-->
+                <!--<div class="activity-body col-xs-9">-->
+                    <!--<p>Anna Kowalska is searching for a free accomodation in <a href="#">Rome, Italy</a>.</p>-->
+                    <!--<p class="small text-right">&mdash; added 17:21, 30 January 2017.</p>-->
+                    <!--<p><a href="#">&mdash; Propose one.</a></p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-header col-xs-3">-->
+                    <!--<img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">-->
+                    <!--<p><a href="#">Anna Kowalska</a></p>-->
+                <!--</div>-->
+                <!--<div class="activity-body col-xs-9">-->
+                    <!--<p class="author">-->
+                        <!--<img src="img/woman1.jpeg" alt="Avatar" width="24" height="24" class="img-circle">-->
+                        <!--<span><a href="#">Anna Kowalska</a> wrote:</span>-->
+                    <!--</p>-->
+                    <!--<p class="cite">What do you people think about traveling? Personally, this is an oppportunity to find new friends across different cultures. And of course you can always practice spanish or any other language :)</p>-->
+                    <!--<p class="small text-right">&mdash; added 17:16, 30 January 2017.</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-header col-xs-3">-->
+                    <!--<img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">-->
+                    <!--<img src="img/woman1.jpeg" alt="Avatar" width="48" height="48" class="img-circle">-->
+                <!--</div>-->
+                <!--<div class="activity-body col-xs-9">-->
+                    <!--<p><a href="#">Anna Kowalska</a> and <a href="#">Justyna Nowak</a> are now friends.</p>-->
+                    <!--<p class="small text-right">&mdash; added 15:12, 30 January 2017.</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div ng-repeat="post in posts.results" class="activity-box img-rounded">
+            <div ng-show="post.verb == 'established_friendship'" class="row">
                 <div class="activity-header col-xs-3">
-                    <img src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a href="#">Karolina Szyndler</a></p>
+                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-show="post.target.avatar" ng-src="{{ post.target.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.target.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
                 </div>
                 <div class="activity-body col-xs-9">
-                    <p>Karolina Szyndler wants to go to <a href="#">London, United Kingdom</a> in near future.</p>
-                    <p class="small text-right">&mdash; added 5 minutes ago.</p>
-                    <p><a href="#">&mdash; I want too!</a></p>
+                    <p><a href="#">{{ post.actor.first_name }} {{ post.actor.last_name }}</a> and
+                        <a href="#">{{ post.target.first_name }} {{ post.target.last_name }}</a> are now friends.</p>
+                    <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                 </div>
             </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
+            <div ng-show="post.verb == 'requested'" class="row">
                 <div class="activity-header col-xs-3">
-                    <img src="img/woman1.jpeg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a href="#">Justyna Nowak</a></p>
+                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <p><a href="#">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
                 </div>
                 <div class="activity-body col-xs-9">
-                    <p>
-                        Justyna Nowak gives 4 out of 5 stars to atmosphere in <a href="#">Paris, France</a>.<br>
-                        Atmosphere:
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                    </p>
-                    <p class="small text-right">&mdash; added 12:37, 31 January 2017.</p>
-                </div>
-            </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
-                <div class="activity-header col-xs-3">
-                    <img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a href="#">Anna Kowalska</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
-                    <p>Anna Kowalska is searching for a free accomodation in <a href="#">Rome, Italy</a>.</p>
-                    <p class="small text-right">&mdash; added 17:21, 30 January 2017.</p>
+                    <p>{{ post.actor.first_name }} {{ post.actor.last_name }} is searching for a free accomodation in <a href="#">{{ post.target.city }}</a>.</p>
+                    <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                     <p><a href="#">&mdash; Propose one.</a></p>
                 </div>
             </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
+            <div ng-show="post.verb == 'texted'" class="row">
                 <div class="activity-header col-xs-3">
-                    <img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a href="#">Anna Kowalska</a></p>
+                    <img ng-show="post.target.avatar" ng-src="{{ post.target.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.target.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <p><a href="#">{{ post.target.first_name }} {{ post.target.last_name }}</a></p>
                 </div>
                 <div class="activity-body col-xs-9">
                     <p class="author">
-                        <img src="img/woman1.jpeg" alt="Avatar" width="24" height="24" class="img-circle">
-                        <span><a href="#">Anna Kowalska</a> wrote:</span>
+                        <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="24" height="24" class="img-circle">
+                        <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="24" height="24" class="img-circle">
+                        <span><a href="#">{{ post.actor.first_name }} {{ post.actor.last_name }}</a> wrote:</span>
                     </p>
-                    <p class="cite">What do you people think about traveling? Personally, this is an oppportunity to find new friends across different cultures. And of course you can always practice spanish or any other language :)</p>
-                    <p class="small text-right">&mdash; added 17:16, 30 January 2017.</p>
+                    <p class="cite">{{ post.data.content }}</p>
+                    <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                 </div>
             </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
+            <div ng-show="post.verb == 'published'" class="row">
                 <div class="activity-header col-xs-3">
-                    <img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img src="img/woman1.jpeg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-show="post.target.avatar" ng-src="{{ post.target.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.target.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <p><a href="#">{{ post.target.first_name }} {{ post.target.last_name }}</a></p>
                 </div>
                 <div class="activity-body col-xs-9">
-                    <p><a href="#">Anna Kowalska</a> and <a href="#">Justyna Nowak</a> are now friends.</p>
-                    <p class="small text-right">&mdash; added 15:12, 30 January 2017.</p>
+                    <p class="cite">{{ post.data.content }}</p>
+                    <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                 </div>
             </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
+            <div ng-show="post.verb == 'dreamed'" class="row">
                 <div class="activity-header col-xs-3">
-                    <img src="img/woman2.jpeg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a href="#">Anna Kowalska</a></p>
+                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <p><a href="#">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
                 </div>
                 <div class="activity-body col-xs-9">
-                    <p>Anna Kowalska posted new photos on her gallery:</p>
+                    <p>{{ post.actor.first_name }} {{ post.actor.last_name }} wants to go to <a href="#">{{ post.target.city }}</a> in near future.</p>
+                    <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
+                    <p><a href="#">&mdash; I want too!</a></p>
+                </div>
+            </div>
+            <div ng-show="post.verb == 'rated'" class="row">
+                <div class="activity-header col-xs-3">
+                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <p><a href="#">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
+                </div>
+                <div class="activity-body col-xs-9">
+                    <p>
+                        {{ post.actor.first_name }} {{ post.actor.last_name }} gives {{ post.data.rating }} out of 5 stars to {{ post.data.category }} in <a href="#">{{ post.target.city }}</a>.<br>
+                        {{ post.data.category }}:
+                        <i ng-repeat="i in range(post.data.rating) track by $index" class="fa fa-star" aria-hidden="true"></i>
+                        <i ng-repeat="i in range(5 - post.data.rating) track by $index" class="fa fa-star-o" aria-hidden="true"></i>
+                    </p>
+                    <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
+                </div>
+            </div>
+            <div ng-show="post.verb == 'created_album'" class="row">
+                <div class="activity-header col-xs-3">
+                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
+                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
+                    <p><a href="#">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
+                </div>
+                <div class="activity-body col-xs-9">
+                    <p>{{ post.actor.first_name }} {{ post.actor.last_name }} posted new photos on their gallery:</p>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="photo-item">
-                                <a href="#">
-                                    <img src="img/thumbnail1.jpg" height="100">
+                            <div class="photo-item" ng-repeat="photo in post.data.photos | limitTo: 3">
+                                <a ng-href="{{ photo.photo.full_size | assetURL }}" target="_blank">
+                                    <img ng-src="{{ photo.photo.thumbnail | assetURL }}" height="100">
                                 </a>
                             </div>
-                            <div class="photo-item">
-                                <a href="#">
-                                    <img src="img/thumbnail2.jpg" height="100">
-                                </a>
-                            </div>
-                            <div class="photo-item">
-                                <a href="#">
-                                    <img src="img/thumbnail3.jpg" height="100">
-                                </a>
-                            </div>
-                            <div class="more-box">
+                            <div class="more-box" ng-show="post.data.photos.length > 3">
                                 <a href="#">
                                     <i class="glyphicon glyphicon-option-horizontal"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <p class="small text-right m-t-10">&mdash; added 15:12, 30 January 2017.</p>
+                    <p class="small text-right m-t-10">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                 </div>
             </div>
         </div>
         <div class="pagination-wrapper row">
             <nav aria-label="...">
               <ul class="pager">
-                <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>
-                <li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>
+                <li ng-show="posts.previous" class="previous">
+                    <a ng-click="loadPreviousPosts()" href="#"><span aria-hidden="true">&larr;</span> Newer</a>
+                </li>
+                <li ng-show="posts.next" class="next">
+                    <a ng-click="loadNextPosts()" href="#">Older <span aria-hidden="true">&rarr;</span></a>
+                </li>
               </ul>
             </nav>
         </div>

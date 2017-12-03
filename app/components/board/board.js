@@ -2,18 +2,64 @@
 
 angular.module('voyageur.board', ['ngRoute'])
 
-.config(['$stateProvider', function($stateProvider) {
-    $stateProvider.state('site.board', {
-        url: '/board',
-        views: {
-            layout: {
-                templateUrl: 'components/board/board.html',
-                controller: 'BoardCtrl'
+    .config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('site.board', {
+            url: '/board',
+            views: {
+                layout: {
+                    templateUrl: 'components/board/board.html',
+                    controller: 'BoardCtrl'
+                }
+            },
+            resolve: {
+                posts: function (postResource) {
+                    return postResource.query().$promise;
+                }
             }
-        }
-  });
-}])
+        });
+    }])
 
-.controller('BoardCtrl', [function() {
+    .controller('BoardCtrl', ['$scope', '$rootScope', '$timeout', '$http', 'postResource', 'posts',
+        function ($scope, $rootScope, $timeout, $http, postResource, posts) {
+            $scope.posts = posts;
 
-}]);
+            $rootScope.actionButton = {
+                label: 'Post',
+                submitFn: function () {
+                    postResource.create({}, {content: $rootScope.actionInput.value}, function(data){
+                        $scope.reloadPosts();
+                        $rootScope.showSuccessBox = true;
+                        $timeout(function(){
+                            $rootScope.showSuccessBox = false;
+                        }, 2000);
+                        $rootScope.actionInput.value = '';
+                    });
+                }
+            };
+            $rootScope.actionInput = {
+                placeholder: '"I want to go to London"',
+                value: ''
+            };
+
+            $scope.range = function (n) {
+                return new Array(n);
+            };
+
+            $scope.reloadPosts = function(){
+                postResource.query().$promise.then(function(data){
+                    $scope.posts = data;
+                });
+            };
+
+            $scope.loadPreviousPosts = function(){
+                $http.get($scope.posts.previous).then(function(response){
+                    $scope.posts = response.data;
+                });
+            };
+
+            $scope.loadNextPosts = function(){
+                $http.get($scope.posts.next).then(function(response){
+                    $scope.posts = response.data;
+                });
+            };
+        }]);

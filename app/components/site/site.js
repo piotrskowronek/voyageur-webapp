@@ -15,8 +15,18 @@ angular.module('voyageur.site', ['ngRoute'])
         });
     }])
 
-    .controller('SiteCtrl', ['$scope', '$state', '$http', 'logged', function ($scope, $state, $http, logged) {
+    .controller('SiteCtrl', ['$scope', '$rootScope', '$state', '$http', 'logged', function ($scope, $rootScope, $state, $http, logged) {
         $scope.logged = logged;
+
+        $rootScope.actionButton = {
+            label: '',
+            submitFn: function(){}
+        };
+        $rootScope.actionInput = {
+            placeholder: '',
+            value: ''
+        };
+        $rootScope.showSuccessBox = false;
 
         $scope.settingsButton = {
             templateUrl: 'components/site/settings.html',
