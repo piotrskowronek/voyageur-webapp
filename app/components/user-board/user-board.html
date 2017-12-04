@@ -6,7 +6,7 @@
         <p><a ui-sref="site.user-board({id: user.actor.id})">{{ user.first_name }} {{ user.last_name }}</a></p>
         <ul>
             <li><a href="#">Send invitation</a></li>
-            <li><a href="#">Information</a></li>
+            <li><a ui-sref="site.user-about({id: user.id})">Information</a></li>
             <li><a href="#">Gallery</a></li>
             <li><a href="#">Private message</a></li>
         </ul>

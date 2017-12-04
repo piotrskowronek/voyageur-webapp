@@ -7,6 +7,13 @@
                 params: {
                     id: '@id'
                 }
+            },
+            get: {
+                url: cfg.apiRoot + "profiles/:id/?",
+                method: "GET",
+                params: {
+                    id: "@id"
+                }
             }
         });
  }]);

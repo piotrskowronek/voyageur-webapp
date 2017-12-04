@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="profile-menu col-xs-2">
+        <img ng-hide="user.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle center-block">
+        <img ng-show="user.avatar" src="{{ user.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle center-block">
+        <div style="clear: both;"></div>
+        <p><a ui-sref="site.user-board({id: user.actor.id})">{{ user.first_name }} {{ user.last_name }}</a></p>
+        <ul>
+            <li><a href="#">Send invitation</a></li>
+            <li><a href="#">Information</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Private message</a></li>
+        </ul>
+    </div>
+    <div class="activity-wrapper col-xs-8">
+            <div class="activity-box img-rounded">
+                <div class="row">
+                    <div class="activity-body col-xs-12">
+                        <h4>About me</h4>
+                        <p>{{ profile.about_me }}</p>
+                    </div>
+                </div>
+            </div>
+        <div class="activity-box img-rounded">
+            <div class="row">
+                <div class="activity-body col-xs-12">
+                    <h4>Places where I have been to</h4>
+                    <p>{{ profile.places_been_to }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="activity-box img-rounded">
+            <div class="row">
+                <div class="activity-body col-xs-12">
+                    <h4>Why I like to travel</h4>
+                    <p>{{ profile.why_like_travel }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="activity-box img-rounded">
+            <div class="row">
+                <div class="activity-body col-xs-12">
+                    <h4>Best things I have done in my life</h4>
+                    <p>{{ profile.best_things }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
