@@ -23,23 +23,9 @@ angular.module('voyageur.board', ['ngRoute'])
         function ($scope, $rootScope, $timeout, $http, postResource, posts) {
             $scope.posts = posts;
 
-            $rootScope.actionButton = {
-                label: 'Post',
-                submitFn: function () {
-                    postResource.create({}, {content: $rootScope.actionInput.value}, function(data){
-                        $scope.reloadPosts();
-                        $rootScope.showSuccessBox = true;
-                        $timeout(function(){
-                            $rootScope.showSuccessBox = false;
-                        }, 2000);
-                        $rootScope.actionInput.value = '';
-                    });
-                }
-            };
-            $rootScope.actionInput = {
-                placeholder: '"I want to go to London"',
-                value: ''
-            };
+            $rootScope.initActionPostOnOwnBoard(function(){
+                $scope.reloadPosts();
+            });
 
             $scope.range = function (n) {
                 return new Array(n);

@@ -22,48 +22,40 @@ angular.module('voyageur.user-board', ['ngRoute'])
         });
     }])
 
-    .controller('UserBoardCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$transition$', 'userResource', 'posts', 'user',
-        function ($scope, $rootScope, $timeout, $http, $transition$, userResource, posts, user) {
+    .controller('UserBoardCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$transition$', 'userResource',
+        'posts', 'user', 'logged',
+        function ($scope, $rootScope, $timeout, $http, $transition$, userResource, posts, user, logged) {
             $scope.posts = posts;
             $scope.user = user;
 
-            $rootScope.actionButton = {
-                label: 'Post',
-                submitFn: function () {
-                    userResource.publicMessage({id: $transition$.params().id},
-                        {content: $rootScope.actionInput.value}, function (data) {
-                            $scope.reloadPosts();
-                            $rootScope.showSuccessBox = true;
-                            $timeout(function () {
-                                $rootScope.showSuccessBox = false;
-                            }, 2000);
-                            $rootScope.actionInput.value = '';
-                        });
-                }
-            };
-            $rootScope.actionInput = {
-                placeholder: 'Write something on their board...',
-                value: ''
-            };
+            if (parseInt(logged.id) === parseInt($transition$.params().id)) {
+                $rootScope.initActionPostOnOwnBoard(function () {
+                    $scope.reloadPosts();
+                });
+            } else {
+                $rootScope.initActionPostOnSomebodysBoard(function () {
+                    $scope.reloadPosts();
+                });
+            }
 
             $scope.range = function (n) {
                 return new Array(n);
             };
 
-            $scope.reloadPosts = function(){
-                userResource.posts({id: $transition$.params().id}).$promise.then(function(data){
+            $scope.reloadPosts = function () {
+                userResource.posts({id: $transition$.params().id}).$promise.then(function (data) {
                     $scope.posts = data;
                 });
             };
 
-            $scope.loadPreviousPosts = function(){
-                $http.get($scope.posts.previous).then(function(response){
+            $scope.loadPreviousPosts = function () {
+                $http.get($scope.posts.previous).then(function (response) {
                     $scope.posts = response.data;
                 });
             };
 
-            $scope.loadNextPosts = function(){
-                $http.get($scope.posts.next).then(function(response){
+            $scope.loadNextPosts = function () {
+                $http.get($scope.posts.next).then(function (response) {
                     $scope.posts = response.data;
                 });
             };
