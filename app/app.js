@@ -9,6 +9,7 @@ angular.module('voyageur', [
     'voyageur.resources',
     'voyageur.filters',
     'voyageur.board',
+    'voyageur.user-board',
     'voyageur.signup',
     'voyageur.profile-edition',
     'voyageur.site',

@@ -1,38 +1,34 @@
 <div class="row">
-    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+    <div class="profile-menu col-xs-2">
+        <img ng-hide="user.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle center-block">
+        <img ng-show="user.avatar" src="{{ user.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle center-block">
+        <div style="clear: both;"></div>
+        <p><a ui-sref="site.user-board({id: user.actor.id})">{{ user.first_name }} {{ user.last_name }}</a></p>
+        <ul>
+            <li><a href="#">Send invitation</a></li>
+            <li><a href="#">Information</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Private message</a></li>
+        </ul>
+    </div>
+    <div class="activity-wrapper col-xs-8">
         <div ng-repeat="post in posts.results" class="activity-box img-rounded">
             <div ng-show="post.verb == 'established_friendship'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-show="post.target.avatar" ng-src="{{ post.target.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.target.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p><a ui-sref="site.user-board({id: post.actor.id})">{{ post.actor.first_name }} {{ post.actor.last_name }}</a> and
                         <a ui-sref="site.user-board({id: post.target.id})">{{ post.target.first_name }} {{ post.target.last_name }}</a> are now friends.</p>
                     <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                 </div>
             </div>
             <div ng-show="post.verb == 'requested'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a ui-sref="site.user-board({id: post.actor.id})">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p>{{ post.actor.first_name }} {{ post.actor.last_name }} is searching for a free accomodation in <a href="#">{{ post.target.city }}</a>.</p>
                     <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                     <p><a href="#">&mdash; Propose one.</a></p>
                 </div>
             </div>
             <div ng-show="post.verb == 'texted'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a ui-sref="site.user-board({id: post.actor.id})">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p class="author">
                         <img ng-show="post.target.avatar" ng-src="{{ post.target.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="24" height="24" class="img-circle">
                         <img ng-hide="post.target.avatar" src="img/face.jpg" alt="Avatar" width="24" height="24" class="img-circle">
@@ -43,35 +39,20 @@
                 </div>
             </div>
             <div ng-show="post.verb == 'published'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.target.avatar" ng-src="{{ post.target.avatar.photo.thumbnail | assetURL }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.target.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a ui-sref="site.user-board({id: post.target.id})">{{ post.target.first_name }} {{ post.target.last_name }}</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p class="cite">{{ post.data.content }}</p>
                     <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                 </div>
             </div>
             <div ng-show="post.verb == 'dreamed'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a ui-sref="site.user-board({id: post.actor.id})">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p>{{ post.actor.first_name }} {{ post.actor.last_name }} wants to go to <a href="#">{{ post.target.city }}</a> in near future.</p>
                     <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
                     <p><a href="#">&mdash; I want too!</a></p>
                 </div>
             </div>
             <div ng-show="post.verb == 'rated'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a ui-sref="site.user-board({id: post.actor.id})">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p>
                         {{ post.actor.first_name }} {{ post.actor.last_name }} gives {{ post.data.rating }} out of 5 stars to {{ post.data.category }} in <a href="#">{{ post.target.city }}</a>.<br>
                         {{ post.data.category }}:
@@ -82,12 +63,7 @@
                 </div>
             </div>
             <div ng-show="post.verb == 'created_album'" class="row">
-                <div class="activity-header col-xs-3">
-                    <img ng-show="post.actor.avatar" ng-src="{{ post.actor.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle">
-                    <img ng-hide="post.actor.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle">
-                    <p><a ui-sref="site.user-board({id: post.actor.id})">{{ post.actor.first_name }} {{ post.actor.last_name }}</a></p>
-                </div>
-                <div class="activity-body col-xs-9">
+                <div class="activity-body col-xs-12">
                     <p>{{ post.actor.first_name }} {{ post.actor.last_name }} posted new photos on their gallery:</p>
                     <div class="row">
                         <div class="col-xs-12">
