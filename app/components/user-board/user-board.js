@@ -33,7 +33,7 @@ angular.module('voyageur.user-board', ['ngRoute'])
                     $scope.reloadPosts();
                 });
             } else {
-                $rootScope.initActionPostOnSomebodysBoard(function () {
+                $rootScope.initActionPostOnSomebodysBoard($transition$.params().id, function () {
                     $scope.reloadPosts();
                 });
             }

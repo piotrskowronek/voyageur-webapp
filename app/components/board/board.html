@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+    <div ng-show="posts.results.length" class="activity-wrapper col-xs-8 col-xs-offset-2">
         <div ng-repeat="post in posts.results" class="activity-box img-rounded">
             <div ng-show="post.verb == 'established_friendship'" class="row">
                 <div class="activity-header col-xs-3">
@@ -118,6 +118,13 @@
                 </li>
               </ul>
             </nav>
+        </div>
+    </div>
+    <div ng-hide="posts.results.length" class="activity-wrapper col-xs-8 col-xs-offset-2">
+        <div class="row">
+            <div class="nothing-here">
+                <p>Nothing here.</p>
+            </div>
         </div>
     </div>
 </div>

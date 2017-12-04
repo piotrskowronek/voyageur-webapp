@@ -62,11 +62,11 @@ angular.module('voyageur.site', ['ngRoute'])
                 };
             };
 
-            $rootScope.initActionPostOnSomebodysBoard = function (callback) {
+            $rootScope.initActionPostOnSomebodysBoard = function (id, callback) {
                 $rootScope.actionButton = {
                     label: 'Post',
                     submitFn: function () {
-                        userResource.publicMessage({id: $transition$.params().id},
+                        userResource.publicMessage({id: id},
                             {content: $rootScope.actionInput.value}, function (data) {
                                 callback();
                                 $rootScope.showSuccessBox = true;

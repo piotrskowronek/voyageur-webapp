@@ -17,8 +17,10 @@ angular.module('voyageur.profile-edition', ['ngRoute'])
         });
     }])
 
-    .controller('ProfileEditionCtrl', ['$scope', '$state', 'profileResource',
-        function ($scope, $state, profileResource) {
+    .controller('ProfileEditionCtrl', ['$scope', '$rootScope', '$state', 'profileResource',
+        function ($scope, $rootScope, $state, profileResource) {
+            $rootScope.initActionPostOnOwnBoard(function () {});
+
             if ($scope.logged.has_profile){
                 profileResource.get({id: $scope.logged.id}).$promise.then(function(data){
                     $scope.formData = data;

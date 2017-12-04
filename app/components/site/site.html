@@ -14,7 +14,7 @@
         </div>
         <div class="toolbar col-xs-8">
             <ul class="nav nav-pills">
-              <li role="presentation"><a href="#">My Profile</a></li>
+              <li role="presentation"><a ui-sref="site.user-board({id: logged.id})">My Profile</a></li>
               <li role="presentation"><a href="#">Explore</a></li>
               <li role="presentation"><a href="#">
                   Post <span ng-show="logged.unread_messages_count" class="badge">{{ logged.unread_messages_count }}</span>
