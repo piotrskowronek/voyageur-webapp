@@ -29,6 +29,13 @@
                 params: {
                     id: "@id"
                 }
+            },
+            invite: {
+                url: cfg.apiRoot + "users/:id/invite/?",
+                method: "POST",
+                params: {
+                    id: "@id"
+                }
             }
         });
  }]);
