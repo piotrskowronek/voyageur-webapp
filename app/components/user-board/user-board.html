@@ -3,7 +3,7 @@
         <img ng-hide="user.avatar" src="img/face.jpg" alt="Avatar" width="48" height="48" class="img-circle center-block">
         <img ng-show="user.avatar" src="{{ user.avatar.photo.thumbnail }}" alt="Avatar" width="48" height="48" class="img-circle center-block">
         <div style="clear: both;"></div>
-        <p><a ui-sref="site.user-board({id: user.actor.id})">{{ user.first_name }} {{ user.last_name }}</a></p>
+        <p><a ui-sref="site.user-board({id: user.id})">{{ user.first_name }} {{ user.last_name }}</a></p>
         <ul>
             <li ng-show="user.relationship_status == 'not_exists'">
                 <a ng-click="invite()" href="#">Send invitation</a>
@@ -16,7 +16,7 @@
             </li>
             <li><a ui-sref="site.user-about({id: user.id})">Information</a></li>
             <li><a href="#">Gallery</a></li>
-            <li><a href="#">Private message</a></li>
+            <li ng-show="logged.id != user.id"><a ui-sref="site.post-compose({id: user.id})">Private message</a></li>
         </ul>
     </div>
     <div ng-show="posts.results.length" class="activity-wrapper col-xs-8">

@@ -22,8 +22,8 @@
                         <i class="fa fa-times"></i> Reject
                     </a>
                     <p ng-show="msg.type == 'invitation_response'">{{ msg.conversation_partner.first_name }} {{ msg.conversation_partner.last_name }} accepted invitation to friend list.</p>
-                    <p ng-show="msg.type == 'message'" ng-class="{'active': !msg.is_read}">{{ msg.content }}
-                        <a href="#">Read more &raquo;</a>
+                    <p ng-show="msg.type == 'message'" ng-class="{'active': !msg.is_read}">{{ msg.content | cut }}
+                        <a ui-sref="site.post-conversation({id: msg.id})">Read more &raquo;</a>
                     </p>
                 </div>
             </div>

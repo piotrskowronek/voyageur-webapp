@@ -4,25 +4,27 @@ angular.module('voyageur.post-compose', ['ngRoute'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('site.post-compose', {
-            url: '/post/compose',
+            url: '/post/compose?id',
             views: {
                 layout: {
                     templateUrl: 'components/post-compose/post-compose.html',
                     controller: 'PostComposeCtrl'
                 }
             },
-            resolve: {
-                messages: function (messageResource) {
-                    return messageResource.query().$promise;
+            params: {
+                id: {
+                    type: 'int'
                 }
             }
         });
     }])
 
-    .controller('PostComposeCtrl', ['$scope', '$rootScope', '$http', '$state', 'messageResource', 'userResource', 'messages',
-        function ($scope, $rootScope, $http, $state, messageResource, userResource, messages) {
+    .controller('PostComposeCtrl', ['$scope', '$rootScope', '$http', '$state', '$transition$', 'messageResource', 'userResource',
+        function ($scope, $rootScope, $http, $state, $transition$, messageResource, userResource) {
+            $scope.idPreloaded = $transition$.params().id != undefined;
+
             $scope.msg = {
-                recipient: null
+                recipient: $transition$.params().id || null
             };
 
             $scope.errors = null;
