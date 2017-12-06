@@ -16,7 +16,7 @@
             <ul class="nav nav-pills">
               <li role="presentation"><a ui-sref="site.user-board({id: logged.id})">My Profile</a></li>
               <li role="presentation"><a href="#">Explore</a></li>
-              <li role="presentation"><a href="#">
+              <li role="presentation"><a ui-sref="site.post">
                   Post <span ng-show="logged.unread_messages_count" class="badge">{{ logged.unread_messages_count }}</span>
               </a></li>
             </ul>

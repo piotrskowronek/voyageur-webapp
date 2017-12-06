@@ -5,7 +5,9 @@
         <div style="clear: both;"></div>
         <p><a ui-sref="site.user-board({id: user.actor.id})">{{ user.first_name }} {{ user.last_name }}</a></p>
         <ul>
-            <li ng-show="user.relationship_status == 'not_exists'"><a href="#">Send invitation</a></li>
+            <li ng-show="user.relationship_status == 'not_exists'">
+                <a ng-click="invite()" href="#">Send invitation</a>
+            </li>
             <li ng-show="user.relationship_status == 'accepted'">
                 <small><i class="fa fa-check-circle-o"></i> Your Friend</small>
             </li>

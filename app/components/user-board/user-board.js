@@ -23,12 +23,12 @@ angular.module('voyageur.user-board', ['ngRoute'])
     }])
 
     .controller('UserBoardCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$transition$', 'userResource',
-        'posts', 'user', 'logged',
-        function ($scope, $rootScope, $timeout, $http, $transition$, userResource, posts, user, logged) {
+        'posts', 'user',
+        function ($scope, $rootScope, $timeout, $http, $transition$, userResource, posts, user) {
             $scope.posts = posts;
             $scope.user = user;
 
-            if (parseInt(logged.id) === parseInt($transition$.params().id)) {
+            if (parseInt($scope.logged.id) === parseInt($transition$.params().id)) {
                 $rootScope.initActionPostOnOwnBoard(function () {
                     $scope.reloadPosts();
                 });
@@ -37,6 +37,14 @@ angular.module('voyageur.user-board', ['ngRoute'])
                     $scope.reloadPosts();
                 });
             }
+
+            $scope.invite = function(){
+                userResource.invite({id: $transition$.params().id}).$promise.then(function(data){
+                    return userResource.get({id: $transition$.params().id}).$promise;
+                }).then(function(data){
+                    $scope.user = data;
+                });
+            };
 
             $scope.range = function (n) {
                 return new Array(n);

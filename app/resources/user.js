@@ -36,6 +36,25 @@
                 params: {
                     id: "@id"
                 }
+            },
+            accept: {
+                url: cfg.apiRoot + "users/:id/accept_invitation/?",
+                method: "POST",
+                params: {
+                    id: "@id"
+                }
+            },
+            reject: {
+                url: cfg.apiRoot + "users/:id/refuse_invitation/?",
+                method: "POST",
+                params: {
+                    id: "@id"
+                }
+            },
+            query: {
+                url: cfg.apiRoot + "users/?",
+                method: "GET",
+                isArray: false
             }
         });
  }]);

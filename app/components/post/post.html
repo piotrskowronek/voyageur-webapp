@@ -1,0 +1,94 @@
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <button ui-sref="site.post-compose" type="button" class="btn btn-primary btn-sm pull-right">
+            <i class="fa fa-plus"></i>
+            Compose
+        </button>
+    </div>
+    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+        <div ng-repeat="msg in messages.results" class="activity-box img-rounded">
+            <div class="row">
+                <div class="activity-body col-xs-12">
+                    <p class="author">
+                        <img ng-show="msg.conversation_partner.avatar" ng-src="{{ msg.conversation_partner.avatar.photo.thumbnail }}" alt="Avatar" width="24" height="24" class="img-circle">
+                        <img ng-hide="msg.conversation_partner.avatar" src="img/face.jpg" alt="Avatar" width="24" height="24" class="img-circle">
+                        <span><a ui-sref="site.user-board({id: msg.conversation_partner.id})">{{ msg.conversation_partner.first_name }} {{ msg.conversation_partner.last_name }}</a> <small class="pull-right">{{ msg.created_date | amDateFormat:'Do MMMM, HH:mm' }}</small></span>
+                    </p>
+                    <p ng-show="msg.type == 'invitation'">Request of adding to friend list.</p>
+                    <a ng-show="msg.type == 'invitation' && msg.can_accept" ng-click="accept(msg.conversation_partner.id)" class="btn btn-success btn-xs" href="#">
+                        <i class="fa fa-check"></i> Accept
+                    </a>
+                    <a ng-show="msg.type == 'invitation' && msg.can_accept" ng-click="reject(msg.conversation_partner.id)" class="btn btn-danger btn-xs" href="#">
+                        <i class="fa fa-times"></i> Reject
+                    </a>
+                    <p ng-show="msg.type == 'invitation_response'">{{ msg.conversation_partner.first_name }} {{ msg.conversation_partner.last_name }} accepted invitation to friend list.</p>
+                    <p ng-show="msg.type == 'message'" ng-class="{'active': !msg.is_read}">{{ msg.content }}
+                        <a href="#">Read more &raquo;</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="pagination-wrapper row">
+            <nav aria-label="...">
+              <ul class="pager">
+                <li ng-show="messages.previous" class="previous">
+                    <a ng-click="loadPreviousMessages()" href="#"><span aria-hidden="true">&larr;</span> Newer</a>
+                </li>
+                <li ng-show="messages.next" class="next">
+                    <a ng-click="loadNextMessages()" href="#">Older <span aria-hidden="true">&rarr;</span></a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-body col-xs-12">-->
+                    <!--<p class="author">-->
+                        <!--<img src="img/woman1.jpeg" alt="Avatar" width="24" height="24" class="img-circle">-->
+                        <!--<span><a href="#">Anna Kowalska</a> <small class="pull-right">sent 17:16, 30 January 2017</small></span>-->
+                    <!--</p>-->
+                    <!--<p class="active">What do you people think about traveling? Personally, this is an oppportunity to find new friends across different cultures. And of course you can always practice spanish or any other language :)-->
+                        <!--<a href="#">Read more &raquo;</a>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-body col-xs-12">-->
+                    <!--<p class="author">-->
+                        <!--<img src="img/woman1.jpeg" alt="Avatar" width="24" height="24" class="img-circle">-->
+                        <!--<span><a href="#">Anna Kowalska</a> <small class="pull-right">sent 17:16, 30 January 2017</small></span>-->
+                    <!--</p>-->
+                    <!--<p>Anna Kowalska sent you an invitation to her friend list.</p>-->
+                    <!--<a class="btn btn-success btn-xs" href="#">-->
+                        <!--<i class="fa fa-check"></i> Accept-->
+                    <!--</a>-->
+                    <!--<a class="btn btn-danger btn-xs" href="#">-->
+                        <!--<i class="fa fa-times"></i> Reject-->
+                    <!--</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="activity-box img-rounded">-->
+            <!--<div class="row">-->
+                <!--<div class="activity-body col-xs-12">-->
+                    <!--<p class="author">-->
+                        <!--<img src="img/woman1.jpeg" alt="Avatar" width="24" height="24" class="img-circle">-->
+                        <!--<span><a href="#">Anna Kowalska</a> <small class="pull-right">sent 17:16, 30 January 2017</small></span>-->
+                    <!--</p>-->
+                    <!--<p>Anna Kowalska sent you an invitation to her friend list.<br>-->
+                    <!--You have rejected the invitation</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="pagination-wrapper row">-->
+            <!--<nav aria-label="...">-->
+              <!--<ul class="pager">-->
+                <!--<li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Newer</a></li>-->
+                <!--<li class="next"><a href="#">Older <span aria-hidden="true">&rarr;</span></a></li>-->
+              <!--</ul>-->
+            <!--</nav>-->
+        <!--</div>-->
+    </div>
+</div>

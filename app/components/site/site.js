@@ -20,6 +20,12 @@ angular.module('voyageur.site', ['ngRoute'])
         function ($scope, $rootScope, $state, $http, $timeout, postResource, userResource, $transition$, logged) {
             $scope.logged = logged;
 
+            $scope.reloadLogged = function () {
+                userResource.logged().$promise.then(function(data){
+                    $scope.logged = data;
+                });
+            };
+
             $rootScope.actionButton = {
                 label: '',
                 submitFn: function () {

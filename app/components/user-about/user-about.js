@@ -22,8 +22,8 @@ angular.module('voyageur.user-about', ['ngRoute'])
         });
     }])
 
-    .controller('UserAboutCtrl', ['$scope', '$rootScope', '$transition$', 'userResource', 'user', 'profile', 'logged',
-        function ($scope, $rootScope, $transition$, userResource, user, profile, logged) {
+    .controller('UserAboutCtrl', ['$scope', '$rootScope', '$transition$', 'userResource', 'user', 'profile',
+        function ($scope, $rootScope, $transition$, userResource, user, profile) {
             $scope.profile = profile;
             $scope.user = user;
 
@@ -35,7 +35,7 @@ angular.module('voyageur.user-about', ['ngRoute'])
                 });
             };
 
-            if (parseInt(logged.id) === parseInt($transition$.params().id)) {
+            if (parseInt($scope.logged.id) === parseInt($transition$.params().id)) {
                 $rootScope.initActionPostOnOwnBoard(function () {
                     $scope.reloadPosts();
                 });
