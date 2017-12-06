@@ -14,6 +14,8 @@ angular.module('voyageur', [
     'voyageur.user-about',
     'voyageur.post',
     'voyageur.post-compose',
+    'voyageur.post-conversation',
+    'voyageur.search',
     'voyageur.signup',
     'voyageur.profile-edition',
     'voyageur.site',

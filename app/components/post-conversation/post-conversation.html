@@ -1,0 +1,36 @@
+<div class="row">
+    <div ng-show="showReplyForm" class="col-xs-8 col-xs-offset-2">
+        <form name="form" novalidate>
+            <div class="form-group">
+                <label for="content">Reply to {{ messages[0].conversation_partner.first_name }} {{ messages[0].conversation_partner.last_name }}:</label>
+                <textarea ng-model="formData.content" required="" class="form-control" name="content" id="content" rows="3" placeholder="Write a message here..."></textarea>
+                <p ng-show="errors.content" class="red-text">{{ errors.content[0] }}</p>
+            </div>
+            <button ng-click="sendMessage()" type="button" class="btn btn-primary btn-sm pull-right">
+                Send
+            </button>
+        </form>
+    </div>
+    <div ng-hide="showReplyForm" class="col-xs-8 col-xs-offset-2">
+        <form>
+            <button ng-click="replyBtnClick()" type="button" class="btn btn-primary btn-sm pull-right">
+                <i class="fa fa-reply"></i>
+                Reply
+            </button>
+        </form>
+    </div>
+    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+        <div ng-repeat="msg in messages" class="activity-box img-rounded">
+            <div class="row">
+                <div class="activity-body col-xs-12">
+                    <p class="author">
+                        <img ng-show="msg.sender.avatar" ng-src="{{ msg.sender.avatar.photo.thumbnail }}" alt="Avatar" width="24" height="24" class="img-circle">
+                        <img ng-hide="msg.sender.avatar" src="img/face.jpg" alt="Avatar" width="24" height="24" class="img-circle">
+                        <span><a ui-sref="site.user-board({id: msg.sender.id})">{{ msg.sender.first_name }} {{ msg.sender.last_name }}</a> <small class="pull-right">{{ msg.created_date | amDateFormat:'Do MMMM, HH:mm' }}</small></span>
+                    </p>
+                    <p>{{ msg.content }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

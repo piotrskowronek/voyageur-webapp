@@ -1,8 +1,8 @@
 angular.module("voyageur.filters").filter("cut", [
     function () {
-        return function(item){
-            if (item.length > 100)
-                return item.substr(0, 100) + '...';
+        return function(item, len){
+            if (item.length > len)
+                return item.substr(0, len) + '...';
             return item;
         };
     }]);

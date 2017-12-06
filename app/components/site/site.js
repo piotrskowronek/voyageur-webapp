@@ -88,4 +88,20 @@ angular.module('voyageur.site', ['ngRoute'])
                     value: ''
                 };
             };
+
+            $rootScope.initActionSearchUser = function (callback) {
+                $rootScope.actionButton = {
+                    label: 'Search',
+                    submitFn: function () {
+                        userResource.query({query: $rootScope.actionInput.value}, function (data) {
+                            callback(data);
+                            $rootScope.actionInput.value = '';
+                        });
+                    }
+                };
+                $rootScope.actionInput = {
+                    placeholder: 'Search users...',
+                    value: ''
+                };
+            };
         }]);
