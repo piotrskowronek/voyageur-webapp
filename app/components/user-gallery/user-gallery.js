@@ -50,7 +50,10 @@ angular.module('voyageur.user-gallery', ['ngRoute'])
                 if ($scope.albums.length) {
                     albumResource.get({id: $scope.albums[idx].id}).$promise.then(function (data) {
                         $scope.photos = data.photos_readable;
+                        $scope.chosenAlbumIndex = idx;
                     });
+                } else {
+                    $scope.photos = [];
                 }
             };
 

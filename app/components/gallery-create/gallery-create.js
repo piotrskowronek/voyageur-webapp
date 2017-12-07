@@ -4,7 +4,7 @@ angular.module('voyageur.gallery-create', ['ngRoute'])
 
     .config(['$stateProvider', function ($stateProvider) {
         $stateProvider.state('site.gallery-create', {
-            url: '/gallery/create/:id?',
+            url: '/gallery/create?id',
             views: {
                 layout: {
                     templateUrl: 'components/gallery-create/gallery-create.html',

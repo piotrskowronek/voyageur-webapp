@@ -15,7 +15,7 @@
                 <small>Invitation already sent.</small>
             </li>
             <li><a ui-sref="site.user-about({id: user.id})">Information</a></li>
-            <li><a href="#">Gallery</a></li>
+            <li><a ui-sref="site.user-gallery({id: user.id})">Gallery</a></li>
             <li ng-show="logged.id != user.id"><a ui-sref="site.post-compose({id: user.id})">Private message</a></li>
         </ul>
     </div>
@@ -24,8 +24,7 @@
             <div class="row">
                 <div class="gallery-albums col-xs-12">
                     <ul>
-                        <!--<li class="active">My photos</li>-->
-                        <li ng-repeat="album in albums track by $index">
+                        <li ng-repeat="album in albums track by $index" ng-class="{'active': $index == chosenAlbumIndex}">
                             <a ng-hide="$index == chosenAlbumIndex" ng-click="selectAlbum($index)" href="#">
                                 {{ album.name }}
                             </a>
@@ -36,6 +35,9 @@
                         <a ng-repeat="photo in photos" ng-href="{{ photo.photo.full_size }}" target="_blank">
                             <img ng-src="{{ photo.photo.thumbnail }}" width="200" height="200">
                         </a>
+                        <div ng-hide="photos.length" class="nothing-here">
+                            <p>Nothing here.</p>
+                        </div>
                     </div>
                 </div>
             </div>

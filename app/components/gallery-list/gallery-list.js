@@ -36,8 +36,17 @@ angular.module('voyageur.gallery-list', ['ngRoute'])
                         $scope.photos = data.photos_readable;
                         $scope.chosenAlbumIndex = idx;
                     });
+                } else {
+                    $scope.photos = [];
                 }
             };
-
             $scope.selectAlbum(0);
+
+            $scope.deleteAlbum = function(){
+                albumResource.delete({id: $scope.albums[$scope.chosenAlbumIndex].id}).$promise.then(function(){
+                    $scope.albums.splice($scope.chosenAlbumIndex, 1);
+                    $scope.chosenAlbumIndex = 0;
+                    $scope.selectAlbum(0);
+                });
+            };
         }]);

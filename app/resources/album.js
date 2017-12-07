@@ -23,6 +23,13 @@
                 params: {
                     id: "@id"
                 }
+            },
+            delete: {
+                url: cfg.apiRoot + "albums/:id/?",
+                method: "DELETE",
+                params: {
+                    id: "@id"
+                }
             }
         });
  }]);
