@@ -55,6 +55,11 @@
                 url: cfg.apiRoot + "users/?",
                 method: "GET",
                 isArray: false
+            },
+            albums: {
+                url: cfg.apiRoot + "users/:id/albums/?",
+                method: "GET",
+                isArray: true
             }
         });
  }]);

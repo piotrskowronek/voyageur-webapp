@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+        <div class="activity-box img-rounded">
+            <div class="row">
+                <div class="gallery-albums col-xs-12">
+                    <small><a href="#" class="manage-link pull-right"><i class="glyphicon glyphicon-trash"></i> Delete</a></small>
+                    <small><a ui-sref="site.gallery-create({id: albums[chosenAlbumIndex].id})" class="manage-link pull-right">
+                        <i class="glyphicon glyphicon-pencil"></i> Edit</a>
+                    </small>
+                    <ul>
+                        <!--<li class="active">My photos</li>-->
+                        <li ng-repeat="album in albums track by $index" ng-class="{'active': $index == chosenAlbumIndex}">
+                            <a ng-hide="$index == chosenAlbumIndex" ng-click="selectAlbum($index)" href="#">
+                                {{ album.name }}
+                            </a>
+                            <span ng-show="$index == chosenAlbumIndex">{{ album.name }}</span>
+                            <li><a ui-sref="site.gallery-create" class="grey">
+                                <small><i class="fa fa-plus"></i> Add album</small>
+                            </a></li>
+                        </li>
+                    </ul>
+                    <div class="gallery-box">
+                        <a ng-repeat="photo in photos" ng-href="{{ photo.photo.full_size }}" target="_blank">
+                            <img ng-src="{{ photo.photo.thumbnail }}" width="200" height="200">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

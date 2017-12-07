@@ -15,7 +15,7 @@
                 <small>Invitation already sent.</small>
             </li>
             <li><a ui-sref="site.user-about({id: user.id})">Information</a></li>
-            <li><a href="#">Gallery</a></li>
+            <li><a ui-sref="site.user-gallery({id: user.id})">Gallery</a></li>
             <li ng-show="logged.id != user.id"><a ui-sref="site.post-compose({id: user.id})">Private message</a></li>
         </ul>
     </div>

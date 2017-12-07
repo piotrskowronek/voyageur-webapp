@@ -15,40 +15,28 @@
                 <small>Invitation already sent.</small>
             </li>
             <li><a ui-sref="site.user-about({id: user.id})">Information</a></li>
-            <li><a ui-sref="site.user-gallery({id: user.id})">Gallery</a></li>
+            <li><a href="#">Gallery</a></li>
             <li ng-show="logged.id != user.id"><a ui-sref="site.post-compose({id: user.id})">Private message</a></li>
         </ul>
     </div>
     <div class="activity-wrapper col-xs-8">
-            <div class="activity-box img-rounded">
-                <div class="row">
-                    <div class="activity-body col-xs-12">
-                        <h4>About me</h4>
-                        <p>{{ profile.about_me }}</p>
+        <div class="activity-box img-rounded">
+            <div class="row">
+                <div class="gallery-albums col-xs-12">
+                    <ul>
+                        <!--<li class="active">My photos</li>-->
+                        <li ng-repeat="album in albums track by $index">
+                            <a ng-hide="$index == chosenAlbumIndex" ng-click="selectAlbum($index)" href="#">
+                                {{ album.name }}
+                            </a>
+                            <span ng-show="$index == chosenAlbumIndex">{{ album.name }}</span>
+                        </li>
+                    </ul>
+                    <div class="gallery-box">
+                        <a ng-repeat="photo in photos" ng-href="{{ photo.photo.full_size }}" target="_blank">
+                            <img ng-src="{{ photo.photo.thumbnail }}" width="200" height="200">
+                        </a>
                     </div>
-                </div>
-            </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
-                <div class="activity-body col-xs-12">
-                    <h4>Places where I have been to</h4>
-                    <p>{{ profile.places_been_to }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
-                <div class="activity-body col-xs-12">
-                    <h4>Why I like to travel</h4>
-                    <p>{{ profile.why_like_travel }}</p>
-                </div>
-            </div>
-        </div>
-        <div class="activity-box img-rounded">
-            <div class="row">
-                <div class="activity-body col-xs-12">
-                    <h4>Best things I have done in my life</h4>
-                    <p>{{ profile.best_things }}</p>
                 </div>
             </div>
         </div>

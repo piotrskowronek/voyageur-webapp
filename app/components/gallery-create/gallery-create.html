@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="activity-wrapper col-xs-8 col-xs-offset-2">
+        <div class="activity-box img-rounded">
+            <div class="gallery-box row">
+                <div class="activity-body col-xs-12">
+                    <form name="form" class="form-horizontal" novalidate>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <div class="form-group">
+                                <label for="album-title" class="col-xs-2 input-sm">Album title:</label>
+                                <div class="col-xs-10">
+                                    <input ng-model="formData.name" required="" name="name" type="text" id="album-title"
+                                           class="form-control input-sm"
+                                           placeholder="e.g. Photos from trip">
+                                    <p ng-show="errors.name" class="red-text">{{ errors.name[0] }}</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="place" class="col-xs-2 input-sm">Place of photos:</label>
+                                <div class="col-xs-10">
+                                    <input ng-model="formData.place" required="" name="place" type="text" id="place"
+                                           class="form-control input-sm" placeholder="e.g. Paris">
+                                    <p ng-show="errors.place" class="red-text">{{ errors.place[0] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group col-xs-2">
+                            <button type="submit" ng-click="save()" class="btn btn-primary pull-right">
+                                <i class="fa fa-check"></i> Save
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row m-t-10">
+                        <div class="gallery-list col-xs-4">
+                            <ul>
+                                <li ng-repeat="photo in photos track by $index">
+                                    <img ng-src="{{ photo.photo.thumbnail }}" width="50" height="50">
+                                    <a href="#"><i class="fa fa-picture-o"></i></a>
+                                    <a ng-click="moveUp($index)" ng-hide="$index == 0" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+                                    <a ng-click="moveDown($index)" ng-hide="$index == photos.length-1" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                                    <a ng-click="removePhoto($index)" href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                                </li>
+                            </ul>
+                            <p ng-show="errors.photos" class="red-text">{{ errors.photos[0] }}</p>
+                        </div>
+                        <div class="col-xs-8">
+                            <div ngf-drop ngf-select ng-model="files" class="drop-box" ngf-multiple="false" ngf-allow-dir="false"
+                                 accept="image/*" ngf-pattern="'image/*'">
+                                <i class="glyphicon glyphicon-cloud-upload"></i>
+                                <p>Drag and drop the image here</p>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
