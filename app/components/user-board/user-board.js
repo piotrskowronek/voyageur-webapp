@@ -22,9 +22,9 @@ angular.module('voyageur.user-board', ['ngRoute'])
         });
     }])
 
-    .controller('UserBoardCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$transition$', 'userResource',
+    .controller('UserBoardCtrl', ['$scope', '$rootScope', '$timeout', '$http', '$state', '$transition$', 'userResource',
         'posts', 'user',
-        function ($scope, $rootScope, $timeout, $http, $transition$, userResource, posts, user) {
+        function ($scope, $rootScope, $timeout, $http, $state, $transition$, userResource, posts, user) {
             $scope.posts = posts;
             $scope.user = user;
 
@@ -65,6 +65,17 @@ angular.module('voyageur.user-board', ['ngRoute'])
             $scope.loadNextPosts = function () {
                 $http.get($scope.posts.next).then(function (response) {
                     $scope.posts = response.data;
+                });
+            };
+
+            $scope.want = function(place){
+                postResource.create({}, {content: 'I want to go to ' + place}).$promise.then(function (data) {
+                    $rootScope.showSuccessBox = true;
+                    $timeout(function () {
+                        $rootScope.showSuccessBox = false;
+                    }, 2000);
+
+                    $state.go('site.board');
                 });
             };
         }]);

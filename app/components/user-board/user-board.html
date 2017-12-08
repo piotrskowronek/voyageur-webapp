@@ -32,7 +32,7 @@
                 <div class="activity-body col-xs-12">
                     <p>{{ post.actor.first_name }} {{ post.actor.last_name }} is searching for a free accomodation in <a href="#">{{ post.target.city }}</a>.</p>
                     <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
-                    <p><a href="#">&mdash; Propose one.</a></p>
+                    <p ng-show="logged.id != post.actor.id"><a ui-sref="site.post-compose({id: post.actor.id})">&mdash; Propose one.</a></p>
                 </div>
             </div>
             <div ng-show="post.verb == 'texted'" class="row">
@@ -56,7 +56,7 @@
                 <div class="activity-body col-xs-12">
                     <p>{{ post.actor.first_name }} {{ post.actor.last_name }} wants to go to <a href="#">{{ post.target.city }}</a> in near future.</p>
                     <p class="small text-right">&mdash; added {{ post.timestamp | amDateFormat:'Do MMMM, HH:mm' }}.</p>
-                    <p><a href="#">&mdash; I want too!</a></p>
+                    <p ng-show="logged.id != post.actor.id"><a ng-click="want(post.target.city)" href="#">&mdash; I want too!</a></p>
                 </div>
             </div>
             <div ng-show="post.verb == 'rated'" class="row">
@@ -75,13 +75,13 @@
                     <p>{{ post.actor.first_name }} {{ post.actor.last_name }} posted new photos on their gallery:</p>
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="photo-item" ng-repeat="photo in post.data.photos | limitTo: 3">
+                            <div class="photo-item" ng-repeat="photo in post.data.photos | limitTo: 6">
                                 <a ng-href="{{ photo.photo.full_size | assetURL }}" target="_blank">
                                     <img ng-src="{{ photo.photo.thumbnail | assetURL }}" height="100">
                                 </a>
                             </div>
-                            <div class="more-box" ng-show="post.data.photos.length > 3">
-                                <a href="#">
+                            <div class="more-box" ng-show="post.data.photos.length > 6">
+                                <a ui-sref="site.user-gallery({id: user.id})">
                                     <i class="glyphicon glyphicon-option-horizontal"></i>
                                 </a>
                             </div>

@@ -48,4 +48,16 @@ angular.module('voyageur.board', ['ngRoute'])
                     $scope.posts = response.data;
                 });
             };
+
+            $scope.want = function(place){
+                postResource.create({}, {content: 'I want to go to ' + place}).$promise.then(function (data) {
+                    $rootScope.showSuccessBox = true;
+                    $timeout(function () {
+                        $rootScope.showSuccessBox = false;
+                    }, 2000);
+                    return postResource.query().$promise;
+                }).then(function(data){
+                    $scope.posts = data;
+                });
+            };
         }]);

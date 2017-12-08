@@ -58,6 +58,8 @@ ul.nav li a {color: #5C7A7C;}
 .drop-box p {font-size: 24px; text-align: center; display: block;}
 
 .action-image-panel {text-align: center; margin-top: -5px;}
+.image-container {display: inline-block;}
+.photo-item img {margin-left: 4px;}
 
 .m-t-10 {margin-top: 11px;}
 .grey {color: #929496;}
