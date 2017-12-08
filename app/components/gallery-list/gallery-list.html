@@ -24,11 +24,19 @@
                             </a></li>
                         </li>
                     </ul>
-                    </div>
                     <div class="gallery-box">
-                        <a ng-repeat="photo in photos" ng-href="{{ photo.photo.full_size }}" target="_blank">
-                            <img ng-src="{{ photo.photo.thumbnail }}" width="200" height="200">
-                        </a>
+                        <div ng-repeat="photo in photos" style="display: inline-block;" class="image-container">
+                            <a ng-href="{{ photo.photo.full_size }}" target="_blank">
+                                <img ng-src="{{ photo.photo.thumbnail }}" width="200" height="200">
+                            </a>
+                            <div class="action-image-panel">
+                                <small>
+                                    <a ng-click="setThumbnail(photo.id)" href="#">
+                                        <i class="fa fa-picture-o"></i> Set as Thumbnail
+                                    </a>
+                                </small>
+                            </div>
+                        </div>
                         <div ng-hide="photos.length" class="nothing-here">
                             <p>Nothing here.</p>
                         </div>

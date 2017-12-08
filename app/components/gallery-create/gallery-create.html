@@ -35,7 +35,7 @@
                             <ul>
                                 <li ng-repeat="photo in photos track by $index">
                                     <img ng-src="{{ photo.photo.thumbnail }}" width="50" height="50">
-                                    <a href="#"><i class="fa fa-picture-o"></i></a>
+                                    <a ng-show="isEditing" ng-click="setThumbnail(photo.id)" href="#"><i class="fa fa-picture-o"></i></a>
                                     <a ng-click="moveUp($index)" ng-hide="$index == 0" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
                                     <a ng-click="moveDown($index)" ng-hide="$index == photos.length-1" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
                                     <a ng-click="removePhoto($index)" href="#"><i class="glyphicon glyphicon-trash"></i></a>

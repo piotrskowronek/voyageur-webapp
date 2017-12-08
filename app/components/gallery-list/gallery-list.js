@@ -19,8 +19,8 @@ angular.module('voyageur.gallery-list', ['ngRoute'])
         });
     }])
 
-    .controller('GalleryListCtrl', ['$scope', '$rootScope', '$transition$', 'albumResource', 'albums',
-        function ($scope, $rootScope, $transition$, albumResource, albums) {
+    .controller('GalleryListCtrl', ['$scope', '$rootScope', '$transition$', 'albumResource', 'photoResource', 'albums',
+        function ($scope, $rootScope, $transition$, albumResource, photoResource, albums) {
             $scope.albums = albums;
             $scope.photos = [];
 
@@ -49,4 +49,10 @@ angular.module('voyageur.gallery-list', ['ngRoute'])
                     $scope.selectAlbum(0);
                 });
             };
+
+            $scope.setThumbnail = function(id){
+                photoResource.thumbnail({id: id}).$promise.then(function(data){
+                    $scope.reloadLogged();
+                });
+            }
         }]);

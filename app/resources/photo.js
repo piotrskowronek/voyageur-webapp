@@ -4,6 +4,13 @@
             create: {
                 url: cfg.apiRoot + "photos/?",
                 method: "POST"
+            },
+            thumbnail: {
+                url: cfg.apiRoot + "photos/:id/thumbnail/?",
+                method: "POST",
+                params: {
+                    id: "@id"
+                }
             }
         });
  }]);
